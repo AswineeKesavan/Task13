@@ -1,0 +1,70 @@
+Q1:What are the four access modifiers available in java and what is the significance in teams of class, method and variable accessibility?
+
+Ans: In Java, there are four access modifiers that control the visibility and accessibility of classes, methods, and variables. These modifiers are:
+
+public: The public modifier makes a class, method, or variable accessible from any other class in the same package or from any other package. It provides the highest level of accessibility. When a class is marked as public, it can be freely accessed by any other class.
+
+protected: The protected modifier allows a class, method, or variable to be accessible within its own package and by subclasses (even if they are in a different package). This means that while classes and members marked as protected can't be accessed directly from unrelated classes, they can be accessed by subclasses, which enables a level of inheritance-based encapsulation.
+
+default (no modifier): In Java, if no access modifier is specified, it defaults to package-private (also known as default access). This means that the class, method, or variable is accessible only within its own package. It is not accessible outside the package in which it is declared.
+
+private: The private modifier restricts the visibility of a method or a variable to its own class. It is the most restrictive access level. private members cannot be accessed directly by any code outside the class, including subclasses.
+
+Significance in Terms of Accessibility:
+
+Classes: The access modifier for a class determines where that class can be accessed from. public classes can be accessed from anywhere (other classes in the same package or different packages). protected, default, and private classes have restricted visibility depending on their modifier.
+
+Methods: Access modifiers for methods control which other classes can invoke those methods. public methods can be called from anywhere. protected methods can be called by subclasses and classes in the same package. Default and private methods have increasingly restrictive access.
+
+Variables: The access modifiers for variables dictate who can read or write to those variables. public variables can be accessed and modified from anywhere. protected variables are accessible to subclasses and classes in the same package. Default and private variables restrict access further.
+
+Q2:What is the difference between exception and error?
+
+Ans :
+
+Exception:
+
+1. Type of Condition: An exception is a condition that can occur during the execution of a program that disrupts the normal flow of instructions. It is generally caused by factors outside the immediate control of the program (e.g., invalid user input, network issues, file not found, etc.).
+
+2. Hierarchy: Exceptions in Java are represented as objects belonging to classes that extend either directly or indirectly from the `Throwable` class. They are typically recoverable and are intended to be caught and handled by the application.
+
+3. Syntax: Here's an example of throwing and catching an exception in Java:
+  
+   try {
+       // This line will throw an Arithmetic Exception
+   } catch (ArithmeticException e) {
+       
+   }
+ 
+Error:
+
+1. Type of Condition: Errors, on the other hand, denote serious problems that usually prevent the application from continuing its normal execution. They are typically caused by conditions that are outside the control of the application (e.g., system-level issues, hardware failures, out-of-memory errors, etc.).
+
+2. Hierarchy: Errors in Java are also represented as objects that extend the `Throwable` class, similar to exceptions. However, they are usually not meant to be caught by the application code.
+
+Q3:What is the difference between checked exception and unchecked exception?
+
+Ans:
+In Java, exceptions are categorized into two main types based on how the compiler enforces handling and declaration: checked exceptions and unchecked exceptions (also known as runtime exceptions).
+
+Checked Exceptions:
+
+1. Definition: Checked exceptions are exceptions that are checked at compile-time by the Java compiler. This means that the compiler ensures that these exceptions are either handled using a `try-catch` block or declared in the `throws` clause of the method.
+
+2. Examples: Examples of checked exceptions include `IOException`, `SQLException`, `ClassNotFoundException`, etc. These typically arise due to external conditions that can occur during execution, such as problems with I/O operations, database access, or class loading.
+
+3. Handling Requirement: Checked exceptions must be either caught and handled using a `try-catch` block, or they must be declared in the method signature using the `throws` keyword. This ensures that the calling code is aware of the possibility of these exceptions occurring and can handle them appropriately.
+
+4. Compile-Time Checking: Since checked exceptions are checked at compile-time, failure to handle or declare them correctly results in a compilation error.
+
+Unchecked Exceptions (Runtime Exceptions):
+
+1. Definition: Unchecked exceptions are exceptions that are not checked by the compiler at compile-time. They are subclasses of `RuntimeException` or `Error`, or their subclasses.
+
+2. Examples: Examples of unchecked exceptions include `NullPointerException`, `ArrayIndexOutOfBoundsException`, `ArithmeticException`, `IllegalArgumentException`, etc. These exceptions usually arise due to programming errors or unexpected conditions that can be avoided with proper coding practices.
+
+3. Handling Requirement: Unchecked exceptions do not require explicit handling using `try-catch` blocks or declaration in the `throws` clause. However, it is good practice to handle them if possible to prevent unexpected termination of the program.
+
+4. Runtime Checking : Unchecked exceptions are checked at runtime. If an unchecked exception occurs and is not caught and handled, it typically results in the termination of the program with an error message.
+
+
